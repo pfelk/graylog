@@ -1,6 +1,6 @@
 # Updating Soon
 ### Benefits
-- Intuitive pattern mathcing 
+- Intuitive pattern matching 
 - Alerts 
 - ETA 1 March 20201
 
