@@ -74,6 +74,7 @@ services:
       - GRAYLOG_PASSWORD_SECRET=C#@nG3this.P@33w*rD
       # Password: admin
       - GRAYLOG_ROOT_PASSWORD_SHA2=197afc606f316fbf81770ee2430a9d33b5e35a20dd24ff07b9f56117feeec540
+      # UPDATE IP ADDRESS TO HOST IP IF RUNNING ON SEPERATE SYSTEM
       - GRAYLOG_HTTP_EXTERNAL_URI=http://127.0.0.1:9000/
       - GRAYLOG_ELASTICSEARCH_VERSION=7
     entrypoint: /usr/bin/tini -- wait-for-it elasticsearch:9200 --  /docker-entrypoint.sh
