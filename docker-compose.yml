@@ -1,0 +1,117 @@
+version: '2.2'
+services:
+  ### MongoDB ###
+  mongodb:
+    image: mongo:4.4
+    container_name: mongo
+    volumes:
+      - mongo_data:/data/db
+    networks:
+    - elastic  
+  ### ElasticSearch ###
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.11.0
+    container_name: elasticsearch
+    environment:
+      - node.name=elasticsearch
+      - cluster.name=es-docker-cluster
+      - discovery.seed_hosts=es02,es03
+      - cluster.initial_master_nodes=elasticsearch,es02,es03
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms4G -Xmx4G"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data01:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    networks:
+      - elastic
+  es02:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.11.0
+    container_name: es02
+    environment:
+      - node.name=es02
+      - cluster.name=es-docker-cluster
+      - discovery.seed_hosts=elasticsearch,es03
+      - cluster.initial_master_nodes=elasticsearch,es02,es03
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms4G -Xmx4G"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data02:/usr/share/elasticsearch/data
+    networks:
+      - elastic
+  es03:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.11.0
+    container_name: es03
+    environment:
+      - node.name=es03
+      - cluster.name=es-docker-cluster
+      - discovery.seed_hosts=elasticsearch,es02
+      - cluster.initial_master_nodes=elasticsearch,es02,es03
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms4G -Xmx4G"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data03:/usr/share/elasticsearch/data
+    networks:
+      - elastic 
+  ### GrayLog ###  
+  graylog:
+    image: graylog/graylog:4.0
+    container_name: graylog
+    environment:
+      # CHANGE ME (must be at least 16 characters)!
+      - GRAYLOG_PASSWORD_SECRET=C#@nG3this.P@33w*rD
+      # Password: admin
+      - GRAYLOG_ROOT_PASSWORD_SHA2=197afc606f316fbf81770ee2430a9d33b5e35a20dd24ff07b9f56117feeec540
+      - GRAYLOG_HTTP_EXTERNAL_URI=http://127.0.0.1:9000/
+      - GRAYLOG_ELASTICSEARCH_VERSION=7
+    entrypoint: /usr/bin/tini -- wait-for-it elasticsearch:9200 --  /docker-entrypoint.sh
+    links:
+      - mongodb:mongo
+      - elasticsearch
+    restart: always
+    depends_on:
+      - mongodb
+      - elasticsearch
+    volumes:
+      - graylog_data:/usr/share/graylog/data
+    networks:
+      - elastic   
+    ports:
+      # Graylog web interface and REST API
+      - 9000:9000
+      # Syslog TCP
+      - 1514:1514
+      # Syslog UDP
+      - 1514:1514/udp
+      # GELF TCP
+      - 12201:12201
+      # GELF UDP
+      - 12201:12201/udp
+      
+volumes:
+  data01:
+    driver: local
+  data02:
+    driver: local
+  data03:
+    driver: local
+  graylog_data:
+    driver: local
+  mongo_data:
+    driver: local
+
+networks:
+  elastic:
+    driver: bridge  
