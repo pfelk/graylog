@@ -1,3 +1,9 @@
+# Updating Soon
+### Benefits
+- Intuitive pattern mathcing 
+- Alerts 
+- ETA 1 March 20201
+
 ## Added Java Repository 
 ```
 sudo add-apt-repository ppa:webupd8team/java
