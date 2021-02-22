@@ -3,7 +3,7 @@ services:
   ### MongoDB ###
   mongodb:
     environment: 
-      - TZ=America/New_York
+      - TZ=EST
     image: mongo:4.4
     container_name: mongo
     volumes:
@@ -15,7 +15,7 @@ services:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.11.0
     container_name: elasticsearch
     environment:
-      - TZ=America/New_York
+      - TZ=EST
       - node.name=elasticsearch
       - cluster.name=es-docker-cluster
       - discovery.seed_hosts=es02,es03
@@ -36,7 +36,7 @@ services:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.11.0
     container_name: es02
     environment:
-      - TZ=America/New_York
+      - TZ=EST
       - node.name=es02
       - cluster.name=es-docker-cluster
       - discovery.seed_hosts=elasticsearch,es03
@@ -55,7 +55,7 @@ services:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.11.0
     container_name: es03
     environment:
-      - TZ=America/New_York
+      - TZ=EST
       - node.name=es03
       - cluster.name=es-docker-cluster
       - discovery.seed_hosts=elasticsearch,es02
@@ -75,15 +75,15 @@ services:
     image: graylog/graylog:4.0
     container_name: graylog
     environment:
-      - TZ=America/New_York
+      - TZ=EST
       # CHANGE ME (must be at least 16 characters)!
       - GRAYLOG_PASSWORD_SECRET=C#@nG3this.P@33w*rD
       # Password: admin
       - GRAYLOG_ROOT_PASSWORD_SHA2=197afc606f316fbf81770ee2430a9d33b5e35a20dd24ff07b9f56117feeec540
       # UPDATE IP ADDRESS TO HOST IP IF RUNNING ON SEPERATE SYSTEM
-      - GRAYLOG_HTTP_EXTERNAL_URI=http://127.0.0.1:9000/
+      - GRAYLOG_HTTP_EXTERNAL_URI=http://10.0.0.30:9000/
       - GRAYLOG_ELASTICSEARCH_VERSION=7
-      - GRAYLOG_TIMEZONE=America/New_York
+      - GRAYLOG_TIMEZONE=EST
     entrypoint: /usr/bin/tini -- wait-for-it elasticsearch:9200 --  /docker-entrypoint.sh
     links:
       - mongodb:mongo
@@ -106,7 +106,7 @@ services:
       # Suricata
       - 5040:5040
       # Netflow
-      - 2550:2550
+      - 2550:2550/udp
       # GELF TCP
       - 12201:12201
       # GELF UDP
