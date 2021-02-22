@@ -1,3 +1,0 @@
-%{WORD:tracker},%{WORD:interface},%{WORD:reason},%{WORD:action},%{WORD:direction},%{INT:ipver},%{WORD:tos},,%{INT:ttl},%{INT:id},%{INT:offset},%{WORD:flags},%{INT:protocol_id},%{WORD:protocol},%{INT:length},%{IP:source_ip},%{IP:destination_ip},%{INT:source_port},%{INT:destination_port},%{INT:data_length}
-
-%{INT:rule},,,%{INT:tracker},%{WORD:interface},%{WORD:reason},%{WORD:action},%{WORD:direction},%{INT:ipver},%{WORD:flag},,%{INT:ttl},%{INT:id},%{INT:offset},%{WORD:flags},%{INT:protocol_id},%{WORD:protocol},%{INT:length},%{IP:source_ip},%{IP:destination_ip},%{WORD:type},%{INT:destination_port},%{INT:data_length}
