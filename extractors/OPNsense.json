@@ -28,7 +28,7 @@
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "full_message",
-      "target_field": "Filterlog",
+      "target_field": "filterlog",
       "extractor_config": {
         "regex_value": "^.*filterlog\\[.*\\]\\:(.*)$"
       },
@@ -48,8 +48,8 @@
       ],
       "order": 1,
       "cursor_strategy": "copy",
-      "source_field": "^.*filterlog\\[.*\\]\\:(.*)$"
-      "target_field": "Filterlog",
+      "source_field": "full_message",
+      "target_field": "filterlog",
       "extractor_config": {
         "regex_value": "^.*filterlog\\[.*\\]\\:(.*)$"
       },
@@ -70,7 +70,7 @@
       "order": 2,
       "cursor_strategy": "copy",
       "source_field": "full_message",
-      "target_field": "Filterlog",
+      "target_field": "filterlog",
       "extractor_config": {
         "regex_value": "^.*filterlog\\[.*\\]\\:(.*)$"
       },
@@ -91,7 +91,7 @@
       "order": 3,
       "cursor_strategy": "copy",
       "source_field": "full_message",
-      "target_field": "Filterlog",
+      "target_field": "filterlog",
       "extractor_config": {
         "regex_value": "^.*filterlog\\[.*\\]\\:(.*)$"
       },
@@ -112,7 +112,7 @@
       "order": 4,
       "cursor_strategy": "copy",
       "source_field": "full_message",
-      "target_field": "Filterlog",
+      "target_field": "filterlog",
       "extractor_config": {
         "regex_value": "^.*filterlog\\[.*\\]\\:(.*)$"
       },
@@ -133,7 +133,7 @@
       "order": 5,
       "cursor_strategy": "copy",
       "source_field": "full_message",
-      "target_field": "Filterlog",
+      "target_field": "filterlog",
       "extractor_config": {
         "regex_value": "^.*filterlog\\[.*\\]\\:(.*)$"
       },
@@ -154,7 +154,7 @@
       "order": 6,
       "cursor_strategy": "copy",
       "source_field": "full_message",
-      "target_field": "Filterlog",
+      "target_field": "filterlog",
       "extractor_config": {
         "regex_value": "^.*filterlog\\[.*\\]\\:(.*)$"
       },
@@ -175,7 +175,7 @@
       "order": 7,
       "cursor_strategy": "copy",
       "source_field": "full_message",
-      "target_field": "Filterlog",
+      "target_field": "filterlog",
       "extractor_config": {
         "regex_value": "^.*filterlog\\[.*\\]\\:(.*)$"
       },
@@ -196,7 +196,7 @@
       "order": 8,
       "cursor_strategy": "copy",
       "source_field": "full_message",
-      "target_field": "Filterlog",
+      "target_field": "filterlog",
       "extractor_config": {
         "regex_value": "^.*filterlog\\[.*\\]\\:(.*)$"
       },
@@ -217,7 +217,7 @@
       "order": 9,
       "cursor_strategy": "copy",
       "source_field": "full_message",
-      "target_field": "Filterlog",
+      "target_field": "filterlog",
       "extractor_config": {
         "regex_value": "^.*filterlog\\[.*\\]\\:(.*)$"
       },
@@ -238,7 +238,7 @@
       "order": 10,
       "cursor_strategy": "copy",
       "source_field": "full_message",
-      "target_field": "Filterlog",
+      "target_field": "filterlog",
       "extractor_config": {
         "regex_value": "^.*filterlog\\[.*\\]\\:(.*)$"
       },
@@ -259,7 +259,7 @@
       "order": 11,
       "cursor_strategy": "copy",
       "source_field": "full_message",
-      "target_field": "Filterlog",
+      "target_field": "filterlog",
       "extractor_config": {
         "regex_value": "^.*filterlog\\[.*\\]\\:(.*)$"
       },
@@ -280,7 +280,7 @@
       "order": 12,
       "cursor_strategy": "copy",
       "source_field": "full_message",
-      "target_field": "Filterlog",
+      "target_field": "filterlog",
       "extractor_config": {
         "regex_value": "^.*filterlog\\[.*\\]\\:(.*)$"
       },
