@@ -48,7 +48,7 @@
       ],
       "order": 1,
       "cursor_strategy": "copy",
-      "source_field": ^.*filterlog\[.*\]\:(.*)$,
+      "source_field": "^.*filterlog\\[.*\\]\\:(.*)$"
       "target_field": "Filterlog",
       "extractor_config": {
         "regex_value": "^.*filterlog\\[.*\\]\\:(.*)$"
