@@ -81,7 +81,7 @@ services:
       # Password: admin
       - GRAYLOG_ROOT_PASSWORD_SHA2=197afc606f316fbf81770ee2430a9d33b5e35a20dd24ff07b9f56117feeec540
       # UPDATE IP ADDRESS TO HOST IP IF RUNNING ON SEPERATE SYSTEM
-      - GRAYLOG_HTTP_EXTERNAL_URI=http://10.0.0.30:9000/
+      - GRAYLOG_HTTP_EXTERNAL_URI=http://10.0.0.100:9000/
       - GRAYLOG_ELASTICSEARCH_VERSION=7
       - GRAYLOG_TIMEZONE=EST
     entrypoint: /usr/bin/tini -- wait-for-it elasticsearch:9200 --  /docker-entrypoint.sh
@@ -104,7 +104,7 @@ services:
       # Syslog UDP
       - 5140:5140/udp
       # Suricata
-      - 5040:5040
+      - 5040:5040/udp
       # Netflow
       - 2550:2550/udp
       # GELF TCP
