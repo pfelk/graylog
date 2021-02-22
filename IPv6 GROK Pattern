@@ -1,3 +1,0 @@
-%{INT:rule},,,%{INT:tracker},%{WORD:interface},%{WORD:reason},%{WORD:action},%{WORD:direction},%{INT:ipver},%{WORD:rule},%{WORD:ipv6_Flag2},%{WORD:flow_label},%{WORD:protocol_id},%{INT:number},%{INT:length},%{IPV6:source_ip},%{IPV6:destination_ip},%{WORD:scr_port},%{WORD:destination_port}
-
-%{INT:rule},,,%{INT:tracker},%{WORD:interface},%{WORD:reason},%{WORD:action},%{WORD:direction},%{INT:ipver},%{WORD:ipv6_Flag2},%{WORD:flow_label},%{WORD:protocol_id},%{WORD:ping},%{INT:number},%{INT:length},%{IP:source_ip},%{IP:destination_ip}
