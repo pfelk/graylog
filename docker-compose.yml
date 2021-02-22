@@ -2,6 +2,8 @@ version: '2.2'
 services:
   ### MongoDB ###
   mongodb:
+    environment: 
+      - TZ=America/New_York
     image: mongo:4.4
     container_name: mongo
     volumes:
@@ -13,6 +15,7 @@ services:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.11.0
     container_name: elasticsearch
     environment:
+      - TZ=America/New_York
       - node.name=elasticsearch
       - cluster.name=es-docker-cluster
       - discovery.seed_hosts=es02,es03
@@ -33,6 +36,7 @@ services:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.11.0
     container_name: es02
     environment:
+      - TZ=America/New_York
       - node.name=es02
       - cluster.name=es-docker-cluster
       - discovery.seed_hosts=elasticsearch,es03
@@ -51,6 +55,7 @@ services:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.11.0
     container_name: es03
     environment:
+      - TZ=America/New_York
       - node.name=es03
       - cluster.name=es-docker-cluster
       - discovery.seed_hosts=elasticsearch,es02
@@ -70,6 +75,7 @@ services:
     image: graylog/graylog:4.0
     container_name: graylog
     environment:
+      - TZ=America/New_York
       # CHANGE ME (must be at least 16 characters)!
       - GRAYLOG_PASSWORD_SECRET=C#@nG3this.P@33w*rD
       # Password: admin
@@ -120,4 +126,4 @@ volumes:
 
 networks:
   elastic:
-    driver: bridge  
+    driver: bridge
